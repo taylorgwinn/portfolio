@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f5f0e8;
-  --color-ink: #14120f;
+  --color-cream: #e3f0fb;
+  --color-ink: #0f2a43;
   --color-accent: #ff4d1c;
   --color-accent-dim: #d63c11;
 }
