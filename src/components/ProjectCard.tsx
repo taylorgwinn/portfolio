@@ -1,24 +1,33 @@
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const thumbnail = project.films.find((f) => f.thumbnail)?.thumbnail;
+
   return (
     <article className="group border-4 border-ink bg-cream transition-colors hover:bg-ink">
-      <div className="flex aspect-video items-center justify-center border-b-4 border-ink bg-ink text-cream transition-colors group-hover:bg-accent">
-        <span className="font-display px-6 text-center text-2xl font-bold uppercase tracking-tight">
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden border-b-4 border-ink bg-ink text-cream">
+        {thumbnail && (
+          <Image
+            src={thumbnail}
+            alt={project.client}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
+        )}
+        <span className="font-display relative z-10 bg-ink/70 px-6 py-2 text-center text-2xl font-bold uppercase tracking-tight">
           {project.client}
         </span>
       </div>
       <div className="p-6">
-        <div className="mb-3 flex flex-wrap items-center gap-2">
-          {project.award && (
-            <span className="bg-accent px-2 py-1 text-xs font-bold uppercase tracking-widest text-cream">
+        {project.award && (
+          <div className="mb-3">
+            <span className="bg-accent-2 px-2 py-1 text-xs font-bold uppercase tracking-widest text-ink">
               {project.award}
             </span>
-          )}
-          <span className="text-xs font-bold uppercase tracking-widest text-ink/60 group-hover:text-cream/60">
-            {project.budget}
-          </span>
-        </div>
+          </div>
+        )}
         <h3 className="font-display mb-1 text-2xl font-bold leading-tight group-hover:text-cream">
           {project.title}
         </h3>
@@ -29,7 +38,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
         <p className="mb-4 text-xs font-bold uppercase tracking-wide text-ink/60 group-hover:text-cream/60">
-          Films: {project.films.join(" · ")}
+          Films: {project.films.map((f) => f.title).join(" · ")}
         </p>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
