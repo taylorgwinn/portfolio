@@ -1,11 +1,13 @@
 import Image from "next/image";
-import type { Project } from "@/data/projects";
+import { clientDisplayNames, type Project } from "@/data/projects";
 
 export default function RecentWork({ projects }: { projects: Project[] }) {
   return (
     <div className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-4">
       {projects.map((project) => {
-        const thumbnail = project.films.find((f) => f.thumbnail)?.thumbnail;
+        const thumbnail =
+          project.recentWorkMedia ??
+          project.films.find((f) => f.thumbnail)?.thumbnail;
         const video = project.films.find((f) => f.video)?.video;
         const videoUrl = project.films.find((f) => f.videoUrl)?.videoUrl;
         const Tag = videoUrl ? "a" : "div";
@@ -35,6 +37,7 @@ export default function RecentWork({ projects }: { projects: Project[] }) {
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                   className="object-cover"
+                  unoptimized={thumbnail.endsWith(".gif")}
                 />
               )
             )}
@@ -47,7 +50,7 @@ export default function RecentWork({ projects }: { projects: Project[] }) {
 
             <div className="absolute inset-0 flex flex-col justify-start bg-ink/0 p-4 opacity-0 transition-all duration-300 group-hover:bg-ink/85 group-hover:opacity-100">
               <p className="font-display text-xs font-bold uppercase tracking-widest text-accent">
-                {project.client}
+                {clientDisplayNames[project.client] ?? project.client}
               </p>
               <h3 className="font-display mt-1 text-lg font-bold uppercase leading-tight">
                 {project.shortTitle ?? project.title}

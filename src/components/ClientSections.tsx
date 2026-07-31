@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ClientLogo from "@/components/ClientLogo";
-import type { Film, Project } from "@/data/projects";
+import { clientDisplayNames, type Film, type Project } from "@/data/projects";
 
 const sectionColors = [
   { bg: "bg-accent-3 text-ink", border: "border-accent-3" },
@@ -19,12 +19,21 @@ function groupByClient(list: Project[]) {
   return Array.from(map.entries());
 }
 
-function FilmTile({ film, aspect }: { film: Film; aspect: string }) {
+function FilmTile({
+  film,
+  aspect,
+  wideSpan,
+}: {
+  film: Film;
+  aspect: string;
+  wideSpan?: boolean;
+}) {
   const Tag = film.videoUrl ? "a" : "div";
   const canZoom = !film.video && !film.videoUrl && film.thumbnail;
+  const resolvedAspect = film.aspect ?? aspect;
 
   return (
-    <div className="group/tile relative">
+    <div className={`group/tile relative ${wideSpan ? "col-span-full" : ""}`}>
       <Tag
         {...(film.videoUrl
           ? {
@@ -33,7 +42,7 @@ function FilmTile({ film, aspect }: { film: Film; aspect: string }) {
               rel: "noopener noreferrer",
             }
           : {})}
-        className={`group/film relative flex ${aspect} items-center justify-center overflow-hidden border-4 border-ink bg-ink text-cream`}
+        className={`group/film relative flex ${resolvedAspect} items-center justify-center overflow-hidden border-4 border-ink bg-ink text-cream`}
       >
         {film.video ? (
           <video
@@ -53,9 +62,15 @@ function FilmTile({ film, aspect }: { film: Film; aspect: string }) {
                 fill
                 sizes="(min-width: 768px) 25vw, 50vw"
                 className="object-cover"
+                unoptimized={film.thumbnail.endsWith(".gif")}
+                style={
+                  film.imagePosition
+                    ? { objectPosition: film.imagePosition }
+                    : undefined
+                }
               />
             )}
-            {(!film.thumbnail || film.videoUrl) && (
+            {(!film.thumbnail || film.label) && (
               <span className="font-display relative z-10 bg-ink/70 px-2 py-1 text-center text-xs font-bold uppercase tracking-widest">
                 {film.title}
               </span>
@@ -102,7 +117,7 @@ export default function ClientSections({
             <div className={`flex items-center gap-3 px-6 py-4 ${color.bg}`}>
               <ClientLogo client={client} className="h-6 w-6 shrink-0" />
               <h3 className="font-display text-lg font-bold uppercase tracking-widest">
-                {client}
+                {clientDisplayNames[client] ?? client}
               </h3>
             </div>
             <div className="divide-y-4 divide-ink">
@@ -139,18 +154,35 @@ export default function ClientSections({
                             </div>
                           )}
                           {smallFilms.length > 0 && (
-                            <div className="flex gap-2">
+                            <div
+                              className={`grid gap-2 ${
+                                project.gridCols === 2
+                                  ? "grid-cols-2"
+                                  : project.gridCols === 4
+                                    ? "grid-cols-4"
+                                    : "grid-cols-3"
+                              }`}
+                            >
                               {smallFilms.map((film) => (
-                                <div key={film.title} className="flex-1">
-                                  <FilmTile film={film} aspect="aspect-square" />
-                                </div>
+                                <FilmTile
+                                  key={film.title}
+                                  film={film}
+                                  aspect="aspect-square"
+                                  wideSpan={film.wide}
+                                />
                               ))}
                             </div>
                           )}
                         </>
                       ) : (
                         <div
-                          className={`grid gap-2 ${project.films.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+                          className={`grid gap-2 ${
+                            project.films.length <= 1
+                              ? "grid-cols-1"
+                              : project.gridCols === 4
+                                ? "grid-cols-4"
+                                : "grid-cols-2"
+                          }`}
                         >
                           {project.films.map((film) => (
                             <FilmTile
@@ -177,7 +209,7 @@ export default function ClientSections({
                         {project.role}
                       </p>
                       <p className="mb-4 text-sm leading-relaxed text-ink/80">
-                        {project.description}
+                        {project.workDescription ?? project.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (

@@ -6,25 +6,11 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="bg-cream">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 pt-16 pb-8 md:grid-cols-2 md:items-center md:pt-24 md:pb-10">
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative order-2 md:order-1"
-        >
-          <div className="flex aspect-[4/5] rotate-[-2deg] items-center justify-center border-4 border-ink bg-ink">
-            <span className="font-display px-6 text-center text-lg font-bold uppercase tracking-widest text-cream">
-              Reel / Video Coming Soon
-            </span>
-          </div>
-        </motion.div>
-
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-8 md:pt-24 md:pb-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-          className="order-1 md:order-2"
         >
           <p className="mb-3 font-display text-sm font-bold uppercase tracking-widest text-accent">
             Hi, I&apos;m Taylor
@@ -37,12 +23,31 @@ export default function Hero() {
           <p className="mt-6 max-w-md text-lg leading-relaxed text-rust">
             Currently{" "}
             <span className="font-bold text-ink">
-              Senior Producer, Base, Creative Office
-            </span>
-            , at Coinbase. Previously at Apple, Omnicom Production, Beats By
-            Dre, Deutsch, and R/GA — across video, experiential, social, and
-            OOH.
+              Senior Lead Producer, Base
+            </span>{" "}
+            at Coinbase.
           </p>
+          <div className="mt-4 max-w-xl space-y-3 text-sm leading-relaxed text-ink/60">
+            <p>
+              Seasoned Integrated Producer and Project Manager with
+              experience on both the brand and agency sides. I have a
+              comprehensive understanding of the entire creative process from
+              conception to completion, which includes strategy and brief
+              development, as well as the trafficking and delivery of assets.
+            </p>
+            <p>
+              My extensive global marketing and campaigns knowledge allows me
+              to manage up to 32 markets simultaneously, drawing on my
+              experience at companies such as Apple, Snapchat, MAL, Saatchi
+              &amp; Saatchi, and R/GA.
+            </p>
+            <p>
+              I am detail-oriented, driven, and passionate about my work. I
+              approach challenges with solutions in mind, effectively guiding
+              teams toward success and creating work that we can all be proud
+              of.
+            </p>
+          </div>
           <Link
             href="/work"
             className="mt-8 inline-block border-4 border-ink bg-accent-2 px-6 py-3 font-display font-bold uppercase tracking-widest text-ink transition-colors hover:bg-accent-3"
