@@ -26,7 +26,7 @@ export type Project = {
   films: Film[];
   tags: string[];
   recentWorkMedia?: string;
-  gridCols?: 2 | 4;
+  gridCols?: 2 | 4 | 5;
 };
 
 export const projects: Project[] = [
@@ -183,6 +183,72 @@ export const projects: Project[] = [
     tags: ["Collaboration", "Packaging", "Retail", "Social", "Merch"],
     recentWorkMedia: "/images/base-erewhon/base-erewhon.gif",
     gridCols: 4,
+  },
+  {
+    slug: "base-merch-fw25",
+    client: "Base",
+    title: "Merch Drop — Winter 2026 Collection",
+    shortTitle: "Merch Drop",
+    role: "Lead Producer, Base",
+    budget: "Confidential",
+    description:
+      "Led production for the Winter 2026 Base merch collection — beanies, caps, hoodies, and a custom watch collaboration. Project included social rollout and Shopify website build.",
+    films: [
+      {
+        title: "Beanie — Camille",
+        thumbnail: "/images/base-merch-fw25/beanie-camille.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Beanie — Chris",
+        thumbnail: "/images/base-merch-fw25/beanie-chris.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Cap — Camille",
+        thumbnail: "/images/base-merch-fw25/cap-camille.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Cap — Chris",
+        thumbnail: "/images/base-merch-fw25/cap-chris.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Hoodie — Camille",
+        thumbnail: "/images/base-merch-fw25/hoodie-camille.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Hoodie — Chris",
+        thumbnail: "/images/base-merch-fw25/hoodie-chris.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Watch — Detail",
+        thumbnail: "/images/base-merch-fw25/watch-detail.jpg",
+        aspect: "aspect-[4/5]",
+        imagePosition: "center 42%",
+      },
+      {
+        title: "Watch — Mono Front",
+        thumbnail: "/images/base-merch-fw25/watch-mono-front.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Watch — Mono Front (Alt)",
+        thumbnail: "/images/base-merch-fw25/watch-mono-front2.jpg",
+        aspect: "aspect-[4/5]",
+      },
+      {
+        title: "Watch — Overhead",
+        thumbnail: "/images/base-merch-fw25/watch-overhead.jpg",
+        aspect: "aspect-[4/5]",
+      },
+    ],
+    tags: ["Merch", "Website", "Content"],
+    recentWorkMedia: "/images/base-merch-fw25/base-merch-fw25.gif",
+    gridCols: 5,
   },
   {
     slug: "apple-news",

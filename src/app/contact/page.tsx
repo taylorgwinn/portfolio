@@ -25,8 +25,7 @@ export default function ContactPage() {
         Let&apos;s talk<span className="text-accent">.</span>
       </h1>
       <p className="mb-12 max-w-lg text-lg text-ink/80">
-        Creative Producer & Project Manager. Reach out about work,
-        collaborations, or waves.
+        Reach out about work, collaborations, or waves.
       </p>
       <div className="flex flex-col gap-4">
         {links.map((link) => (

@@ -7,19 +7,19 @@ const passions = [
   },
   {
     title: "Community",
-    copy: "Tutoring through Boys & Girls Club, School on Wheels, and Big Brothers Big Sisters — plus art sessions at the NYC Blind Center for Adults.",
+    copy: "Volunteering and giving back to the community through Boys & Girls Club, School on Wheels, Big Brothers Big Sisters, and other organizations in the places I've lived.",
     color: "text-accent-2",
     border: "hover:border-accent-2",
   },
   {
     title: "Content Creation",
-    copy: "Drone videography and social editing for small businesses, plus writing on the side.",
+    copy: "Drone videography and social edits for small businesses.",
     color: "text-accent-3",
     border: "hover:border-accent-3",
   },
   {
-    title: "Surfing",
-    copy: "Chasing waves with my 2-year-old daughter whenever I can.",
+    title: "Surfing and Pickleball",
+    copy: "Catch me on my longboard or on the court.",
     color: "text-accent",
     border: "hover:border-accent",
   },
@@ -29,9 +29,12 @@ export default function Passions() {
   return (
     <section className="border-b-4 border-ink bg-ink text-cream">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="font-display mb-10 text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+        <h2 className="font-display mb-3 text-3xl font-bold uppercase tracking-tight sm:text-4xl">
           Off the clock<span className="text-accent">.</span>
         </h2>
+        <p className="mb-10 max-w-xl text-cream/70">
+          Some of my favorite things to do when I&apos;m not working.
+        </p>
         <div className="grid gap-6 sm:grid-cols-2">
           {passions.map((p) => (
             <div

@@ -179,9 +179,11 @@ export default function ClientSections({
                           className={`grid gap-2 ${
                             project.films.length <= 1
                               ? "grid-cols-1"
-                              : project.gridCols === 4
-                                ? "grid-cols-4"
-                                : "grid-cols-2"
+                              : project.gridCols === 5
+                                ? "grid-cols-5"
+                                : project.gridCols === 4
+                                  ? "grid-cols-4"
+                                  : "grid-cols-2"
                           }`}
                         >
                           {project.films.map((film) => (

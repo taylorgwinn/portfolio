@@ -30,22 +30,12 @@ export default function Hero() {
           <div className="mt-4 max-w-xl space-y-3 text-sm leading-relaxed text-ink/60">
             <p>
               Seasoned Integrated Producer and Project Manager with
-              experience on both the brand and agency sides. I have a
-              comprehensive understanding of the entire creative process from
-              conception to completion, which includes strategy and brief
-              development, as well as the trafficking and delivery of assets.
-            </p>
-            <p>
-              My extensive global marketing and campaigns knowledge allows me
-              to manage up to 32 markets simultaneously, drawing on my
-              experience at companies such as Apple, Snapchat, MAL, Saatchi
-              &amp; Saatchi, and R/GA.
-            </p>
-            <p>
-              I am detail-oriented, driven, and passionate about my work. I
-              approach challenges with solutions in mind, effectively guiding
-              teams toward success and creating work that we can all be proud
-              of.
+              experience on both the brand and agency sides, including
+              Apple, Snapchat, MAL, Saatchi &amp; Saatchi, and R/GA. I manage
+              localization of assets across up to 32 markets for clients such
+              as Hotels.com, Toyota, and Volkswagen. I&apos;m
+              detail-oriented, driven, and passionate about guiding teams
+              toward work we can all be proud of.
             </p>
           </div>
           <Link
