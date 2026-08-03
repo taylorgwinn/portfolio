@@ -7,6 +7,8 @@ export type Film = {
   imagePosition?: string;
   aspect?: string;
   wide?: boolean;
+  group?: number;
+  large?: boolean;
 };
 
 export const clientDisplayNames: Record<string, string> = {
@@ -26,7 +28,9 @@ export type Project = {
   films: Film[];
   tags: string[];
   recentWorkMedia?: string;
-  gridCols?: 2 | 4 | 5;
+  gridCols?: 2 | 3 | 4 | 5;
+  pairedLayout?: boolean;
+  mediaHeight?: number;
 };
 
 export const projects: Project[] = [
@@ -183,6 +187,7 @@ export const projects: Project[] = [
     tags: ["Collaboration", "Packaging", "Retail", "Social", "Merch"],
     recentWorkMedia: "/images/base-erewhon/base-erewhon.gif",
     gridCols: 4,
+    mediaHeight: 210,
   },
   {
     slug: "base-merch-fw25",
@@ -249,6 +254,59 @@ export const projects: Project[] = [
     tags: ["Merch", "Website", "Content"],
     recentWorkMedia: "/images/base-merch-fw25/base-merch-fw25.gif",
     gridCols: 5,
+    mediaHeight: 210,
+  },
+  {
+    slug: "base-farcon-2025",
+    client: "Base",
+    title: "FarCon 2025",
+    role: "Lead Producer, Base",
+    budget: "Confidential",
+    description:
+      "Base Loft sponsored event at FarCon 2025, NYC. Customized space featuring the Beta for the Base App, merchandise, gaming, and more.",
+    films: [
+      {
+        title: "Venue Overhead",
+        thumbnail: "/images/base-farcon-2025/venue-overhead.jpg",
+        aspect: "aspect-[3/1]",
+        group: 1,
+      },
+      {
+        title: "Merch Display Corner",
+        thumbnail: "/images/base-farcon-2025/merch-display-corner.jpg",
+        aspect: "aspect-[3/1]",
+        group: 1,
+      },
+      {
+        title: "Merch — T-Shirt Back",
+        thumbnail: "/images/base-farcon-2025/merch-tshirt-back.jpg",
+        aspect: "aspect-[3/2]",
+        group: 1,
+        large: true,
+      },
+      {
+        title: "Lounge Area",
+        thumbnail: "/images/base-farcon-2025/lounge-area.jpg",
+        aspect: "aspect-[3/1]",
+        group: 2,
+      },
+      {
+        title: "Poster Pattern",
+        thumbnail: "/images/base-farcon-2025/poster-pattern.jpg",
+        aspect: "aspect-[3/1]",
+        group: 2,
+      },
+      {
+        title: "Merch — Hats Shelf",
+        thumbnail: "/images/base-farcon-2025/merch-hats-shelf.jpg",
+        aspect: "aspect-[3/2]",
+        group: 2,
+        large: true,
+      },
+    ],
+    tags: ["Event", "Merch", "Social", "Content"],
+    pairedLayout: true,
+    mediaHeight: 210,
   },
   {
     slug: "apple-news",

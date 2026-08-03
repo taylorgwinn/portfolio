@@ -23,17 +23,23 @@ function FilmTile({
   film,
   aspect,
   wideSpan,
+  fillHeight,
+  flexFill,
 }: {
   film: Film;
   aspect: string;
   wideSpan?: boolean;
+  fillHeight?: boolean;
+  flexFill?: boolean;
 }) {
   const Tag = film.videoUrl ? "a" : "div";
   const canZoom = !film.video && !film.videoUrl && film.thumbnail;
-  const resolvedAspect = film.aspect ?? aspect;
+  const resolvedAspect = fillHeight ? "h-full" : (film.aspect ?? aspect);
 
   return (
-    <div className={`group/tile relative ${wideSpan ? "col-span-full" : ""}`}>
+    <div
+      className={`group/tile relative ${wideSpan ? "col-span-full" : ""} ${fillHeight ? "h-full" : ""} ${flexFill ? "min-h-0 flex-1" : ""}`}
+    >
       <Tag
         {...(film.videoUrl
           ? {
@@ -103,6 +109,56 @@ function FilmTile({
   );
 }
 
+function PairedFilms({
+  films,
+  lockedHeight,
+}: {
+  films: Film[];
+  lockedHeight?: boolean;
+}) {
+  const groups = new Map<number, Film[]>();
+  for (const film of films) {
+    const key = film.group ?? 0;
+    const arr = groups.get(key) ?? [];
+    arr.push(film);
+    groups.set(key, arr);
+  }
+
+  return (
+    <div className={`flex flex-col gap-2 ${lockedHeight ? "h-full" : ""}`}>
+      {Array.from(groups.entries()).map(([key, groupFilms]) => {
+        const large = groupFilms.find((f) => f.large);
+        const stack = groupFilms.filter((f) => !f.large);
+        return (
+          <div
+            key={key}
+            className={`flex gap-2 ${lockedHeight ? "min-h-0 flex-1" : ""}`}
+          >
+            <div
+              className={`flex flex-1 flex-col gap-2 ${lockedHeight ? "h-full" : ""}`}
+            >
+              {stack.map((film) => (
+                <FilmTile
+                  key={film.title}
+                  film={film}
+                  aspect="aspect-[3/2]"
+                  fillHeight={lockedHeight}
+                  flexFill={lockedHeight}
+                />
+              ))}
+            </div>
+            {large && (
+              <div className="flex-1">
+                <FilmTile film={large} aspect="aspect-[2/3]" fillHeight />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function ClientSections({
   projects,
 }: {
@@ -134,8 +190,20 @@ export default function ClientSections({
                     key={project.slug}
                     className="grid gap-6 p-6 md:grid-cols-[1fr_1.4fr]"
                   >
-                    <div className="flex flex-col gap-2">
-                      {largeFilms.length > 0 ? (
+                    <div
+                      className="flex flex-col gap-2"
+                      style={
+                        project.mediaHeight
+                          ? { height: `${project.mediaHeight}px` }
+                          : undefined
+                      }
+                    >
+                      {project.pairedLayout ? (
+                        <PairedFilms
+                          films={project.films}
+                          lockedHeight={!!project.mediaHeight}
+                        />
+                      ) : largeFilms.length > 0 ? (
                         <>
                           {largeFilms.length === 1 ? (
                             <FilmTile
@@ -183,14 +251,17 @@ export default function ClientSections({
                                 ? "grid-cols-5"
                                 : project.gridCols === 4
                                   ? "grid-cols-4"
-                                  : "grid-cols-2"
-                          }`}
+                                  : project.gridCols === 3
+                                    ? "grid-cols-3"
+                                    : "grid-cols-2"
+                          } ${project.mediaHeight ? "h-full grid-rows-2" : ""}`}
                         >
                           {project.films.map((film) => (
                             <FilmTile
                               key={film.title}
                               film={film}
                               aspect="aspect-video"
+                              fillHeight={!!project.mediaHeight}
                             />
                           ))}
                         </div>
