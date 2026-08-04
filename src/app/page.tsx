@@ -6,7 +6,9 @@ import RecentWork from "@/components/RecentWork";
 import { projects } from "@/data/projects";
 
 export default function Home() {
-  const featured = projects.filter((p) => p.client === "Base");
+  const featured = projects.filter(
+    (p) => p.client === "Base" && !p.hideFromRecentWork,
+  );
 
   return (
     <>

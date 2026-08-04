@@ -179,10 +179,10 @@ export default function ClientSections({
             <div className="divide-y-4 divide-ink">
               {projs.map((project) => {
                 const largeFilms = project.films.filter(
-                  (f) => f.video || f.videoUrl,
+                  (f) => (f.video || f.videoUrl) && !f.forceSmall,
                 );
                 const smallFilms = project.films.filter(
-                  (f) => !f.video && !f.videoUrl,
+                  (f) => (!f.video && !f.videoUrl) || f.forceSmall,
                 );
 
                 return (

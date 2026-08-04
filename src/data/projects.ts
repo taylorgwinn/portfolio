@@ -9,6 +9,7 @@ export type Film = {
   wide?: boolean;
   group?: number;
   large?: boolean;
+  forceSmall?: boolean;
 };
 
 export const clientDisplayNames: Record<string, string> = {
@@ -31,6 +32,7 @@ export type Project = {
   gridCols?: 2 | 3 | 4 | 5;
   pairedLayout?: boolean;
   mediaHeight?: number;
+  hideFromRecentWork?: boolean;
 };
 
 export const projects: Project[] = [
@@ -38,7 +40,7 @@ export const projects: Project[] = [
     slug: "base-pay",
     client: "Base",
     title: "Base Pay Launch Campaign",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "$250K",
     description:
       "Launch campaign and brand identity for Base Pay, Coinbase's onchain checkout product released with Shopify in July 2025. Partnered with Daisy Chain Studio on a bold animated campaign across digital, social, and live event platforms, positioning Base Pay as accessible, fast, and trustworthy.",
@@ -51,7 +53,7 @@ export const projects: Project[] = [
     slug: "base-fwb-fest",
     client: "Base",
     title: "FWB Fest",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "$200K",
     description:
       "Led production for the Base FWB Fest partnership, a branded event activation featuring custom merch, custom interactive inflatables, on-screen creative, and content capture.",
@@ -91,11 +93,52 @@ export const projects: Project[] = [
     tags: ["Event", "Merch", "Content"],
   },
   {
+    slug: "base-mcp-launch",
+    client: "Base",
+    title: "Base MCP Launch",
+    role: "Senior Producer, Base",
+    budget: "Confidential",
+    description:
+      "Launch campaign and brand identity for Base MCP, allowing users to connect their agents to their Base account, manage their portfolio, and use plugins from apps on Base. Partnering with motion studio Bouillant to create an animated mascot with a life of it's own.",
+    films: [
+      {
+        title: "Base MCP Launch Film",
+        video: "/videos/base-mcp-launch.mp4",
+      },
+      {
+        title: "Cowboy Hat",
+        video: "/videos/base-mcp/cowboy-hat.mp4",
+        aspect: "aspect-square",
+        forceSmall: true,
+      },
+      {
+        title: "Point",
+        video: "/videos/base-mcp/point.mp4",
+        aspect: "aspect-square",
+        forceSmall: true,
+      },
+      {
+        title: "Salty",
+        video: "/videos/base-mcp/salty.mp4",
+        aspect: "aspect-square",
+        forceSmall: true,
+      },
+      {
+        title: "Shades",
+        video: "/videos/base-mcp/shades.mp4",
+        aspect: "aspect-square",
+        forceSmall: true,
+      },
+    ],
+    tags: ["Product Launch", "Brand Identity", "Digital", "Social"],
+    gridCols: 4,
+  },
+  {
     slug: "base-basecamp-2025",
     client: "Base",
     title: "Basecamp 2025",
     shortTitle: "Basecamp",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "$2M",
     description:
       "3 day event in Stowe, Vermont, welcoming over a thousand people from all over the world to take part in on-site workshops, seminars, challenges, games, and more.",
@@ -138,7 +181,7 @@ export const projects: Project[] = [
     slug: "base-erewhon",
     client: "Base",
     title: "Base x Erewhon Partnership",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "Confidential",
     description:
       "Partnered with Erewhon on a limited-edition Blue Lemonade, free with Base App beta sign-up, to celebrate Base's New Day One rebrand. Led concept and execution across packaging, in-store presence, and social storytelling, driving hundreds of new user sign-ups and a fun cultural moment.",
@@ -194,7 +237,7 @@ export const projects: Project[] = [
     client: "Base",
     title: "Merch Drop — Winter 2026 Collection",
     shortTitle: "Merch Drop",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "Confidential",
     description:
       "Led production for the Winter 2026 Base merch collection — beanies, caps, hoodies, and a custom watch collaboration. Project included social rollout and Shopify website build.",
@@ -260,7 +303,7 @@ export const projects: Project[] = [
     slug: "base-farcon-2025",
     client: "Base",
     title: "FarCon 2025",
-    role: "Lead Producer, Base",
+    role: "Senior Producer, Base",
     budget: "Confidential",
     description:
       "Base Loft sponsored event at FarCon 2025, NYC. Customized space featuring the Beta for the Base App, merchandise, gaming, and more.",
@@ -307,6 +350,7 @@ export const projects: Project[] = [
     tags: ["Event", "Merch", "Social", "Content"],
     pairedLayout: true,
     mediaHeight: 210,
+    hideFromRecentWork: true,
   },
   {
     slug: "apple-news",
