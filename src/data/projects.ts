@@ -7,8 +7,6 @@ export type Film = {
   imagePosition?: string;
   aspect?: string;
   wide?: boolean;
-  group?: number;
-  large?: boolean;
   forceSmall?: boolean;
 };
 
@@ -30,7 +28,6 @@ export type Project = {
   tags: string[];
   recentWorkMedia?: string;
   gridCols?: 2 | 3 | 4 | 5;
-  pairedLayout?: boolean;
   mediaHeight?: number;
   hideFromRecentWork?: boolean;
 };
@@ -242,117 +239,47 @@ export const projects: Project[] = [
     role: "Senior Producer, Base",
     budget: "Confidential",
     description:
-      "Led production for the Winter 2026 Base merch collection — beanies, caps, hoodies, and a custom watch collaboration. Project included social rollout and Shopify website build.",
+      "Led production for the Winter 2026 Base merch collection — beanies, caps, hoodies, and a customized watch collaboration with Evora, limited to 1,000 units that sold out in under 28 minutes. Project included social rollout and Shopify website build.",
     films: [
       {
         title: "Beanie — Camille",
         thumbnail: "/images/base-merch-fw25/beanie-camille.jpg",
-        aspect: "aspect-[4/5]",
-      },
-      {
-        title: "Beanie — Chris",
-        thumbnail: "/images/base-merch-fw25/beanie-chris.jpg",
-        aspect: "aspect-[4/5]",
-      },
-      {
-        title: "Cap — Camille",
-        thumbnail: "/images/base-merch-fw25/cap-camille.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
       },
       {
         title: "Cap — Chris",
         thumbnail: "/images/base-merch-fw25/cap-chris.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
       },
       {
         title: "Hoodie — Camille",
         thumbnail: "/images/base-merch-fw25/hoodie-camille.jpg",
-        aspect: "aspect-[4/5]",
-      },
-      {
-        title: "Hoodie — Chris",
-        thumbnail: "/images/base-merch-fw25/hoodie-chris.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
       },
       {
         title: "Watch — Detail",
         thumbnail: "/images/base-merch-fw25/watch-detail.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
         imagePosition: "center 42%",
       },
       {
         title: "Watch — Mono Front",
         thumbnail: "/images/base-merch-fw25/watch-mono-front.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
       },
       {
         title: "Watch — Mono Front (Alt)",
         thumbnail: "/images/base-merch-fw25/watch-mono-front2.jpg",
-        aspect: "aspect-[4/5]",
+        aspect: "aspect-square",
       },
       {
         title: "Watch — Overhead",
-        thumbnail: "/images/base-merch-fw25/watch-overhead.jpg",
-        aspect: "aspect-[4/5]",
+        video: "/videos/base-merch-watch-overhead.mp4",
+        videoUrl: "https://www.instagram.com/base_/reel/DRupunJkfQj/",
       },
     ],
     tags: ["Merch", "Website", "Content"],
     recentWorkMedia: "/images/base-merch-fw25/base-merch-fw25.gif",
-    gridCols: 5,
-    mediaHeight: 210,
-  },
-  {
-    slug: "base-farcon-2025",
-    client: "Base",
-    title: "FarCon 2025",
-    role: "Senior Producer, Base",
-    budget: "Confidential",
-    description:
-      "Base Loft sponsored event at FarCon 2025, NYC. Customized space featuring the Beta for the Base App, merchandise, gaming, and more.",
-    films: [
-      {
-        title: "Venue Overhead",
-        thumbnail: "/images/base-farcon-2025/venue-overhead.jpg",
-        aspect: "aspect-[3/1]",
-        group: 1,
-      },
-      {
-        title: "Merch Display Corner",
-        thumbnail: "/images/base-farcon-2025/merch-display-corner.jpg",
-        aspect: "aspect-[3/1]",
-        group: 1,
-      },
-      {
-        title: "Merch — T-Shirt Back",
-        thumbnail: "/images/base-farcon-2025/merch-tshirt-back.jpg",
-        aspect: "aspect-[3/2]",
-        group: 1,
-        large: true,
-      },
-      {
-        title: "Lounge Area",
-        thumbnail: "/images/base-farcon-2025/lounge-area.jpg",
-        aspect: "aspect-[3/1]",
-        group: 2,
-      },
-      {
-        title: "Poster Pattern",
-        thumbnail: "/images/base-farcon-2025/poster-pattern.jpg",
-        aspect: "aspect-[3/1]",
-        group: 2,
-      },
-      {
-        title: "Merch — Hats Shelf",
-        thumbnail: "/images/base-farcon-2025/merch-hats-shelf.jpg",
-        aspect: "aspect-[3/2]",
-        group: 2,
-        large: true,
-      },
-    ],
-    tags: ["Event", "Merch", "Social", "Content"],
-    pairedLayout: true,
-    mediaHeight: 210,
-    hideFromRecentWork: true,
   },
   {
     slug: "apple-news",
