@@ -104,6 +104,8 @@ export const projects: Project[] = [
       {
         title: "Base MCP Launch Film",
         video: "/videos/base-mcp-launch.mp4",
+        videoUrl:
+          "https://www.instagram.com/reel/DYz4AAUxZz1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
       },
       {
         title: "Cowboy Hat",
