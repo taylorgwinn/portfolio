@@ -29,13 +29,15 @@ export default function Hero() {
           </p>
           <div className="mt-4 max-w-xl space-y-3 text-sm leading-relaxed text-ink/60">
             <p>
-              Seasoned Integrated Producer and Project Manager with
-              experience on both the brand and agency sides, including
-              Apple, Snapchat, MAL, Saatchi &amp; Saatchi, and R/GA. I manage
-              localization of assets across up to 32 markets for clients such
-              as Hotels.com, Toyota, and Volkswagen. I&apos;m
-              detail-oriented, driven, and passionate about guiding teams
-              toward work we can all be proud of.
+              Seasoned Integrated Producer and Project Manager with nearly 15
+              years of experience on both the brand and agency sides,
+              including Apple, Snapchat, MAL, Deutsch, and R/GA. Extensive
+              knowledge of the localization process, managing up to 32
+              markets simultaneously. Detail-oriented and steady under
+              pressure, believing that strong team morale and a positive
+              environment are just as essential to truly great work as the
+              quality of the deliverable itself. Building that culture is
+              always part of the goal.
             </p>
           </div>
           <Link
