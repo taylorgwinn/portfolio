@@ -23,7 +23,7 @@ export default function Hero() {
           <p className="mt-6 max-w-md text-lg leading-relaxed text-rust">
             Currently{" "}
             <span className="font-bold text-ink">
-              Senior Lead Producer, Base
+              Senior Producer, Base
             </span>{" "}
             at Coinbase.
           </p>
